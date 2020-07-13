@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "forkify - the best recipe tool out there.",
   "scripts": {
+    "clean": "rmdir /S /Q .cache dist",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
