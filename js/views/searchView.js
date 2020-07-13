@@ -10,12 +10,12 @@ export const clearResults = () => {
     elements.searchResList.innerHTML = '';
 }
 
-const limitRecipeTitle = (title, limit = 17) => {
+const limitRecipeTitle = (title, limit = 28) => {
     const newTitle = [];
     if(title.length > limit){
         
         title.split(' ').reduce((acc, cur) => {
-            if (acc + cur.length <= length){
+            if (acc + cur.length <= limit){
                 newTitle.push(cur);
             }
             return acc + cur.length;
