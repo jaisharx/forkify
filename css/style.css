@@ -205,8 +205,7 @@ body {
 .loader i {
     font-size: 5.5rem;
     color: #f59a83;
-    transform-origin: 44% 50%;
-    animation: rotate 1.5s infinite linear;
+    animation: rotate 1.4s infinite linear;
 }
 
 @keyframes rotate {
@@ -280,9 +279,8 @@ body {
     opacity: 1;
 }
 .likes__icon {
-    fill: #f59a83;
-    height: 3.75rem;
-    width: 3.75rem;
+    color: #f59a83;
+    font-size: 3.75rem;
 }
 .likes__panel {
     position: absolute;
