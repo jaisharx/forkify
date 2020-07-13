@@ -4,13 +4,17 @@
   "version": "1.0.0",
   "description": "forkify - the best recipe tool out there.",
   "scripts": {
-    "dev": "webpack"
+    "start": "webpack-dev-server --mode development --open",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "Jai-Sharma",
   "license": "ISC",
   "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
