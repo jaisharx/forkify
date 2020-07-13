@@ -1,6 +1,14 @@
-/*
-    Author  : jaisharx <sendtojsharma@gmail.com>
-    Date    : 13-07-2020
-    Purpose : Global app controller
-*/
+import axios from "axios";
+import "regenerator-runtime/runtime";
 
+async function getResults(query) {
+    try {
+        const res = await axios(`https://forkify-api.herokuapp.com/api/search?q=${query}`);
+        const recipes = res.data.recipes;
+        console.log(recipes);
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+getResults("pizza");
