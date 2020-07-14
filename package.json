@@ -17,7 +17,6 @@
     "parcel-plugin-nuke-dist": "^1.0.1"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "fractional": "^1.0.0"
+    "axios": "^0.19.2"
   }
 }

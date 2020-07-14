@@ -69,7 +69,7 @@ THE SOFTWARE.
  *      new Fraction('2 3/4') --> 11/4  (prints as 2 3/4)
  *
  */
-const Fraction = function(numerator, denominator)
+export const Fraction = function(numerator, denominator)
 {
     /* double argument invocation */
     if (typeof numerator !== 'undefined' && denominator) {
@@ -278,8 +278,7 @@ Fraction.prototype.normalize = (function()
         } 
         if (isFloat(this.numerator)) {
             var rounded = roundToPlaces(this.numerator, 9);
-            var tempNum = rounded.toString().split('.')[1];
-            var scaleup = Math.pow(10, tempNum.length);
+            var scaleup = Math.pow(10, rounded.toString().split('.')[1].length);
             this.numerator = Math.round(this.numerator * scaleup); // this !!! should be a whole number
             //this.numerator *= scaleup;
             this.denominator *= scaleup;
@@ -364,5 +363,3 @@ Fraction.primeFactors = function(n)
 
     return factors;                  // Return the prime factors
 }
-
-module.exports.Fraction = Fraction
