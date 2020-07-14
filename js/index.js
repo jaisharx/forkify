@@ -1,6 +1,7 @@
 import Search from "./models/Search";
 import Recipe from "./models/Recipe";
 import * as searchView from "./views/searchView";
+import * as recipeView from "./views/recipeView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
 /* Global state of the app
@@ -14,6 +15,7 @@ const state = {};
 // search
 const controlSearch = async () => {
     const query = searchView.getInput(); // TODO
+    // const query = 'pizza'; // TODO
 
     if (query) {
         state.search = new Search(query);
@@ -41,6 +43,7 @@ elements.searchForm.addEventListener("submit", (e) => {
     controlSearch();
 });
 
+
 elements.searchResPages.addEventListener("click", (e) => {
     const btn = e.target.closest(".btn-inline");
     if (btn) {
@@ -56,6 +59,8 @@ const controlRecipe = async () => {
 
     if (id) {
         // prepare UI
+        recipeView.clearRecipe();
+        renderLoader(elements.recipe);
 
         // create recipe
         state.recipe = new Recipe(id);
@@ -63,10 +68,15 @@ const controlRecipe = async () => {
         try {
             // get recipe data
             await state.recipe.getRecipe();
+            state.recipe.parseIngredients();
 
             // calculate servings and time
             state.recipe.calcTime();
             state.recipe.calcServings();
+
+            // render recipe
+            clearLoader();
+            recipeView.renderRecipe(state.recipe);
         } catch (err) {
             console.log(err);
         }
@@ -74,4 +84,4 @@ const controlRecipe = async () => {
 };
 
 // adding to both the events
-["hashchange", "load"].forEach((event) => window.addEventListener(event, controlRecipe));
+["hashchange", "load"].forEach(e => window.addEventListener(e, controlRecipe));
