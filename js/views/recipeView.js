@@ -5,7 +5,7 @@ export const clearRecipe = () => {
     elements.recipe.innerHTML = '';
 }
 
-const formatAccount = count => {
+const formatCount = count => {
     if (count) {
         const [int, dec] = count.toString().split('.').map(el => +el);
 
@@ -25,7 +25,7 @@ const formatAccount = count => {
 const createIngredients = ingredient => `
     <li class="recipe__item">
         <i class="far fa-check-circle recipe__icon"></i>
-    <div class="recipe__count">${formatAccount(ingredient.count)}</div>
+    <div class="recipe__count">${formatCount(ingredient.count)}</div>
     <div class="recipe__ingredient">
         <span class="recipe__unit">${ingredient.unit}</span>
         ${ingredient.ingredient}
@@ -54,10 +54,10 @@ export const renderRecipe = recipe => {
             <span class="recipe__info-text"> servings</span>
 
             <div class="recipe__info-buttons">
-                <button class="btn-tiny">
+                <button class="btn-tiny btn-decrease">
                     <i class="fas fa-minus"></i>
                 </button>
-                <button class="btn-tiny">
+                <button class="btn-tiny btn-increase">
                     <i class="fas fa-plus"></i>
                 </button>
             </div>
@@ -98,4 +98,13 @@ export const renderRecipe = recipe => {
     `;
 
     elements.recipe.insertAdjacentHTML('afterbegin', markup);
+}
+
+export const updateServingsIngredients = recipe => {
+    document.querySelector('.recipe__info-data--people').textContent = recipe.servings;
+
+    const countElements = Array.from(document.querySelectorAll('.recipe__count'));
+    countElements.forEach((el, i) => {
+        el.textContent = formatCount(recipe.ingredients[i].count);
+    }) 
 }
