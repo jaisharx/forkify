@@ -2,14 +2,14 @@
   "name": "forkify",
   "private": "true",
   "version": "1.0.0",
+  "author": "Jai-Sharma",
+  "keywords": ["parcel", "javascript", "web"],
   "description": "forkify - the best recipe tool out there.",
   "scripts": {
     "clean": "rmdir /S /Q .cache dist",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
-  "keywords": [],
-  "author": "Jai-Sharma",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.4",
