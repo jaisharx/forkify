@@ -17,7 +17,7 @@ import { elements, renderLoader, clearLoader } from "./views/base";
 const state = {};
 
 // TEST
-window.s = state;
+// window.s = state;
 
 // search
 const controlSearch = async () => {
